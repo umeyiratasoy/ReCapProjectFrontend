@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -58,6 +59,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+
+            "port": 4040
+          },
           "configurations": {
             "production": {
               "browserTarget": "ReCapProjectFrontend:build:production"
@@ -94,5 +99,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "1f92e01e-ca53-41da-8c05-fc14bdb26707"
   }
 }

@@ -15,12 +15,12 @@
       </thead>
       <tbody>
         <tr *ngFor="let car of cars" >
-          <td >{{car.id}}</td>
+          <td>{{car.carId}}</td>
           <td>{{car.modelYear}}</td>
           <td>{{car.dailyPrice}}</td>
-          <td>{{car.descriptionn}}</td>
-          <td *ngFor="let brand of brands">{{brand.brandName}}</td>
-          <td *ngFor="let color of colors">{{color.colorName}}</td>
+          <td>{{car.description}}</td>
+          <td>{{car.brandName}}</td>
+          <td>{{car.colorName}}</td>
         </tr>
       </tbody>
     </table>

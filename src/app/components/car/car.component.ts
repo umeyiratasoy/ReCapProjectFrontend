@@ -13,15 +13,13 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class CarComponent implements OnInit{
   cars:Car [] = [];
-  brands:Brand [] = [];
-  colors:Color [] = [];
+
   dataLoaded = false;
-  constructor(private carService:CarService, 
-    private brandService:BrandService, 
-    private colorService:ColorService) {}
+  constructor(private carService:CarService) {}
   
   ngOnInit(): void {
     this.getCars();
+
   }
   
   getCars(){ 
@@ -31,17 +29,5 @@ export class CarComponent implements OnInit{
     })
   }
 
-  getBrands(){ 
-    this.brandService.getBrands().subscribe(response => {
-      this.brands = response.data
-      this.dataLoaded = true;
-    })
-  }
 
-  getColors(){ 
-    this.colorService.getColors().subscribe(response => {
-      this.colors = response.data
-      this.dataLoaded = true;
-    })
-  }
 }

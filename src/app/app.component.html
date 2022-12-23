@@ -10,10 +10,15 @@
     <div class="col-md-9">
       <app-car></app-car>
       <br>
-      <app-rental></app-rental>
-      <br>
-      <app-customer></app-customer>
+      <router-outlet></router-outlet>     
     </div>
+    <br><br><br><br><br>
+    <h4>Customers</h4>
+    <app-customer></app-customer>
+    <h4>Rentals</h4>
+    <app-rental></app-rental>
   </div>
-  <router-outlet></router-outlet>
 </div>
+
+
+

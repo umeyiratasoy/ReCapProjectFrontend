@@ -16,21 +16,15 @@
       <th>Modeli</th>
     </tr>
   </thead>
-  <tr routerLink="/carDetail/{{car.carId}}" *ngFor="let car of cars">
-    <td>{{ car.carId }}</td>
-    <td>{{ car.brandName }}</td>
-    <td>{{ car.colorName }}</td>
-    <td>{{ car.modelYear }}</td>
-    <td>{{ car.dailyPrice }}</td>
-    <td>{{ car.description }}</td>
-  </tr>
+  <tbody>
+    <tr routerLink="/carDetail/{{car.carId}}" *ngFor="let car of cars">
+      <td>{{ car.carId }}</td>
+      <td>{{ car.brandName }}</td>
+      <td>{{ car.colorName }}</td>
+      <td>{{ car.modelYear }}</td>
+      <td>{{ car.dailyPrice }}</td>
+      <td>{{ car.description }}</td>
+    </tr>
+  </tbody>
+
 </table>
-
-
-<!-- <ul class="list-group list-group-flush">
-  <li class="list-group-item">Brand : {{ carDetail.brandName }}</li>
-  <li class="list-group-item">Color : {{ carDetail.colorName }}</li>
-  <li class="list-group-item">Model Year : {{ carDetail.modelYear }}</li>
-  <li class="list-group-item"> Daily Price : {{ carDetail.dailyPrice | currency : "$" }} </li>
-</ul>
-</div> -->

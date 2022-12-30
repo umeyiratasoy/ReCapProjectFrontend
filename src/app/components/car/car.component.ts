@@ -3,8 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
 import { Car } from 'src/app/models/car';
 import { CarDetailDto } from 'src/app/models/carDetailDto';
+import { CarImage } from 'src/app/models/carImage';
 import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/color.service';
 
@@ -16,11 +18,20 @@ import { ColorService } from 'src/app/services/color.service';
 export class CarComponent implements OnInit{
   currentCar: Car;
   cars: CarDetailDto[] = [];
+  carImages: CarImage[] = [];
+  brands: Brand[] = [];
+  colors: Color[] = [];
+  filterText="";
+  brandFilter: number = 0;
+  colorFilter: number = 0;
   dataLoaded = false;
 
   constructor(
     private carService: CarService,
     private activatedRoute: ActivatedRoute,
+    private brandService:BrandService,
+    private colorService:ColorService,
+    private carImagesService:CarImageService
   ) {}
   
     ngOnInit(): void {
@@ -32,7 +43,9 @@ export class CarComponent implements OnInit{
           this.getCarsByColorId(params['colorId'])
         }
         else {
-          this.getCars();
+          this.getCars()
+          this.getBrands()
+          this.getColors()
         }
       });
     }
@@ -64,4 +77,27 @@ export class CarComponent implements OnInit{
     console.log(car.colorName);
   }
 
+
+  getBrands(){
+    this.brandService.getBrands().subscribe(response=>{
+      this.brands = response.data;
+    });
+  }
+  getColors(){
+    this.colorService.getColors().subscribe(response=>{
+      this.colors = response.data;
+    });
+  }
+
+  getCarsByColorAndBrand(brandId:number, colorId:number){
+    this.carService.getCarsByColorAndBrand(brandId, colorId).subscribe(response=>{
+      this.cars = response.data
+      this.dataLoaded = true;
+    })
+  }
+
+
+
+  
+  
 }

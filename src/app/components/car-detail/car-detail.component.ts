@@ -48,4 +48,12 @@ export class CarDetailComponent implements OnInit{
       let url: string ="https://localhost:44317/Uploads/Images/" + carImage.imagePath
       return url;
     }
+
+    getImagesClass(carImage:CarImage){
+      if (this.carImages[0] == carImage) {
+        return "carousel-item active"
+      } else {
+        return "carousel-item"
+      }
+    }
 }

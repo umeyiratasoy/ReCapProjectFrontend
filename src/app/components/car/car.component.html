@@ -26,7 +26,7 @@
         <option *ngFor="let color of colors" [value]="color.id">{{color.colorName}}</option>
       </select>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2" >
       <button (click)="getCarsByColorAndBrand(brandFilter,colorFilter)" class="btn btn-dark">Filtrele</button>
     </div>
   </div>

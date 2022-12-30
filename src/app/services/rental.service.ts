@@ -22,4 +22,9 @@ export class RentalService {
     let newUrl = this.apiUrl + "rulesforadding"
     return this.httpClient.post<ResponseModel>(newUrl, rental);
   }
+  
+  addRental(rental:Rental):Observable<Rental>{
+    let newUrl = this.apiUrl + "add"
+    return this.httpClient.post<Rental>(newUrl, rental);
+  }
 }

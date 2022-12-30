@@ -1,4 +1,58 @@
-<div class="card" style="margin: 0 auto; width: 28rem">
+<div *ngIf="dataLoaded==true" class="container py-4 my-4 mx-auto d-flex flex-column">
+  <div class="header">
+      <div class="row r1">
+          <div class="col-md-9 abc">
+              <h1>{{carDetail.modelYear}} - {{ carDetail.brandName }}</h1>
+          </div>
+          <div class="col-md-3 text-right pqr"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+          <p class="text-right para">Based on 250 Review</p>
+      </div>
+  </div>
+  
+  
+  
+  <div class="container-body mt-4">
+      <div class="row r3">
+          <div class="col-md-5 p-5 klo">
+              <ul>
+                  <li>{{ carDetail.carId }}</li>
+                  <li>{{ carDetail.brandName }}</li>
+                  <li>{{ carDetail.colorName }}</li>
+                  <li>{{ carDetail.modelYear }}</li>
+                  <li>{{ carDetail.dailyPrice }}</li>
+                  <li>{{ carDetail.description }}</li>
+              </ul>
+          </div>
+
+          <div id="carouselExampleControls" class="carousel slide col-md-6" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div *ngFor="let carImage of carImages" [class]="getImagesClass(carImage)"> 
+                  <img class="d-block" [src]="getImagePath(carImage)"
+                  width="100%" style="min-height: 400px;"> 
+              </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+      </div>
+  </div>
+  <div class="footer d-flex flex-column mt-5">
+      <app-rental></app-rental>
+      <!-- <div class="row">
+          <div class="col-md-2 des"><a href="#">Description</a></div>
+          <div class="col-md-2 myt "><a href="#">Review</a></div>
+          <div class="col-md-2 mio offset-md-4"><a href="#">ADD TO carT</a></div>
+      </div> -->
+  </div>
+</div>
+
+<!-- <div class="card" style="margin: 0 auto; width: 28rem">
   <div
     id="carouselExampleControls"
     class="carousel slide"
@@ -41,4 +95,4 @@
       Daily Price : {{ carDetail.dailyPrice | currency : "$" }}
     </li>
   </ul>
-</div>
+</div> -->

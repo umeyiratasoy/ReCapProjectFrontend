@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { EmptyError } from 'rxjs';
 import { Brand } from 'src/app/models/brand';
 import { Car } from 'src/app/models/car';
 import { CarDetailDto } from 'src/app/models/carDetailDto';
@@ -31,7 +33,9 @@ export class CarComponent implements OnInit{
     private activatedRoute: ActivatedRoute,
     private brandService:BrandService,
     private colorService:ColorService,
-    private carImagesService:CarImageService
+    private carImagesService:CarImageService,
+    private toastrService:ToastrService,
+    
   ) {}
   
     ngOnInit(): void {
@@ -90,14 +94,20 @@ export class CarComponent implements OnInit{
   }
 
   getCarsByColorAndBrand(brandId:number, colorId:number){
-    this.carService.getCarsByColorAndBrand(brandId, colorId).subscribe(response=>{
-      this.cars = response.data
-      this.dataLoaded = true;
-    })
+    if(brandId == colorId || brandId != colorId) {
+      this.carService.getCarsByColorAndBrand(brandId, colorId).subscribe(response=>{
+        this.cars = response.data
+        this.dataLoaded = true;
+        this.toastrService.success("Başarılı bir şekilde listelendi.") 
+      })
+    }
+    else{
+      this.toastrService.error("Listelenemedi.") 
+    }
   }
 
-
-
-  
+  checkFiltre(colors: Color) {
+    this.toastrService.success( colors.colorName + "listelendi") 
+  }
   
 }

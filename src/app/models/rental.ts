@@ -1,4 +1,6 @@
-export interface Rental{
+import { ResponseModel } from "./responseModel";
+
+export interface Rental extends ResponseModel{
     rentalId:number;
     brandName:string;
     firstName:string;

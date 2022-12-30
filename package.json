@@ -21,6 +21,7 @@
     "bootstrap": "^5.2.3",
     "brand": "^999999999999999.9.9",
     "component": "^0.19.9",
+    "jquery": "^3.6.3",
     "ngx-bootstrap": "^6.2.0",
     "ngx-toastr": "^16.0.1",
     "rxjs": "~7.5.0",

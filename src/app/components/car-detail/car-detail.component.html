@@ -5,22 +5,22 @@
               <h1>{{carDetail.modelYear}} - {{ carDetail.brandName }}</h1>
           </div>
           <div class="col-md-3 text-right pqr"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
-          <p class="text-right para">Based on 250 Review</p>
       </div>
   </div>
-  
   
   
   <div class="container-body mt-4">
       <div class="row r3">
           <div class="col-md-5 p-5 klo">
-              <ul>
-                  <li>{{ carDetail.carId }}</li>
-                  <li>{{ carDetail.brandName }}</li>
-                  <li>{{ carDetail.colorName }}</li>
-                  <li>{{ carDetail.modelYear }}</li>
-                  <li>{{ carDetail.dailyPrice }}</li>
-                  <li>{{ carDetail.description }}</li>
+              <ul class="list-group">
+                  <h6 align="center">Araba Bilgileri</h6>
+                  <li class="list-group-item">Brand : {{ carDetail.brandName }}</li>
+                  <li class="list-group-item">Color : {{ carDetail.colorName }}</li>
+                  <li class="list-group-item">Model Year: {{ carDetail.modelYear }}</li>
+                  <li class="list-group-item">
+                    Daily Price: {{ carDetail.dailyPrice | currency : "$" }}
+                  </li>
+                  <li class="list-group-item">Açıklama: {{ carDetail.description }}</li>
               </ul>
           </div>
 

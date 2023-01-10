@@ -10,18 +10,18 @@
   <div class="row">
       <div class="col-md-5">
           <input type="text" id="rentDate" placeholder="Ay/Gün/Yıl"
-          class="form-control bg-danger" formControlName="rentDate"
+          class="form-control bg-dark text-light" formControlName="rentDate"
           bsDatepicker [(ngModel)]="rentDate"
-          [bsConfig]="{ isAnimated: true, containerClass: 'theme-blue' }">
+          [bsConfig]="{ isAnimated: true, containerClass: 'theme-dark-blue' }">
       </div>
       <div class="col-md-5">
           <input type="text" id="returnDate" placeholder="Ay/Gün/Yıl"
-          class="form-control bg-danger" formControlName="returnDate"
+          class="form-control bg-dark text-light" formControlName="returnDate"
           bsDatepicker [(ngModel)]="returnDate"
-          [bsConfig]="{ isAnimated: true, containerClass: 'theme-blue' }">
+          [bsConfig]="{ isAnimated: true, containerClass: 'theme-dark-blue' }">
       </div>
       <div class="col-md-2">
-          <button class="btn btn-primary" (click)="checkRulesForAdding()">Kirala</button>
+          <button class="btn btn-dark" (click)="checkRulesForAdding()">Kirala</button>
       </div>
   </div>
 </form>

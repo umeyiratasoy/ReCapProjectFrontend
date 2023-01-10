@@ -106,8 +106,8 @@ export class CarComponent implements OnInit{
     }
   }
 
-  checkFiltre(colors: Color) {
-    this.toastrService.success( colors.colorName + "listelendi") 
+  checkFiltre(colors: Color, colorId:number, brands:Brand, brandId:number) {
+
   }
   
 }
